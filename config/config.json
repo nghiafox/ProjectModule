@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/projectModule/ProjectModuleWebPart.js",
+      "manifest": "./src/webparts/projectModule/ProjectModuleWebPart.manifest.json",
+      "outputPath": "./dist/project-module.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "projectModuleStrings": "webparts/projectModule/loc/{locale}.js"
+  }
+}

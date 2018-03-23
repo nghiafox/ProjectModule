@@ -1,0 +1,10 @@
+{
+  "solution": {
+    "name": "project-module-client-side-solution",
+    "id": "a5380acf-53e0-423f-8002-0c6386d65549",
+    "version": "1.0.0.0"
+  },
+  "paths": {
+    "zippedPackage": "solution/project-module.sppkg"
+  }
+}
