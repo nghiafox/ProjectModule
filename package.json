@@ -6,8 +6,8 @@
     "node": ">=0.10.0"
   },
   "dependencies": {
-    "@microsoft/sp-module-loader": "node_modules/@microsoft/sp-module-loader/dist/sp-module-loader.js",
     "@microsoft/sp-core-library": "~1.1.0",
+    "@microsoft/sp-module-loader": "node_modules/@microsoft/sp-module-loader/dist/sp-module-loader.js",
     "@microsoft/sp-webpart-base": "~1.1.1",
     "@types/react": "0.14.46",
     "@types/react-addons-shallow-compare": "0.14.17",
@@ -17,6 +17,7 @@
     "@types/webpack-env": ">=1.12.1 <1.14.0",
     "react": "15.4.2",
     "react-bootstrap-table": "^4.3.1",
+    "react-confirm-alert": "^2.0.2",
     "react-dom": "15.4.2",
     "sp-pnp-js": "https://registry.npmjs.org/sp-pnp-js/-/sp-pnp-js-3.0.6.tgz"
   },
