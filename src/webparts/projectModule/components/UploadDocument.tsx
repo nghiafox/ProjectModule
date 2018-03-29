@@ -14,7 +14,6 @@ export default class UploadDocument extends React.Component<any, any > {
        let web = pnp.sp.web;
        var that= this;
        web.getFolderByServerRelativeUrl("/sites/dev/ProjectDocument/").files.add(file.name, file, override).then(f => {
-           debugger;
             f.file.getItem().then(item => {
                 item.update({
                     TemplateFolder: "TemplateFolder",
@@ -26,7 +25,6 @@ export default class UploadDocument extends React.Component<any, any > {
                 });
             });
         }).catch(function(data){
-            debugger;
             confirmAlert({
                 title: 'Replace or skip files',
                 message: 'The destination already has a file named '+ file.name,

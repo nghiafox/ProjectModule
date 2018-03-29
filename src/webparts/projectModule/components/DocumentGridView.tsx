@@ -8,8 +8,23 @@ export default class ProjectModule extends React.Component<any, any > {
      return <a href={row.ServerRelativeUrl}><img src={imgSrc} ></img> {cell}</a>;
   }
   public render(): React.ReactElement<object> {
+       const options = {
+            onPageChange: this.props.onPageChange,
+            page: this.props.page,
+            sizePerPage: this.props.sizePerPage,
+            onSizePerPageList: this.props.sizePerPageListChange,
+        };
         return(<section>
-                 <BootstrapTable data={this.props.data} striped={true} hover={true}>
+                  <div className="form-group col-xs-6 pull-right">
+                      <input className="form-control" type="text" placeholder="Type your keywords" onChange={(e)=>{this.props.onSearch(e)}} />
+                  </div>
+                 <BootstrapTable 
+                     data={this.props.data} 
+                     striped={true} hover={true}   
+                     fetchInfo={{ dataTotalSize: this.props.total} }  
+                     options={options}
+                     remote
+                     pagination>
                     <TableHeaderColumn dataField="UniqueId" isKey={true} hidden={true}  dataSort={true}></TableHeaderColumn>
                     <TableHeaderColumn dataField="Name"  dataSort={true} dataFormat={ this.nameFormatter.bind(this)}>Name</TableHeaderColumn>
                     <TableHeaderColumn dataField="TimeCreated"  dataSort={true} >Created</TableHeaderColumn>
