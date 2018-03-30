@@ -13,8 +13,23 @@ export default class ProjectModule extends React.Component<IProjectModuleProps, 
             page: 1,
             sizePerPage: 10, };
   }
+  public allowDrop(event) {
+      event.preventDefault();
+  }
+  public drop(event) {
+      var that= this;
+      event.preventDefault();
+      var data = event.dataTransfer.getData("Id");
+      pnp.sp.web.getFolderByServerRelativeUrl("ProjectDocument").files.getByName(data).getItem().then(item => {
+           item.update({
+                    TemplateFolder: "Dropped",
+                }).then(function(){
+                        this.loadDocument();
+                });
+      });
+  }
   public onSearch(target){
-        debugger;
+
         this.loadDocument( this.state.page ,  this.state.sizePerPage,target.target.value); 
   }    
   public loadDocument(page = this.state.page , sizePerPage = this.state.sizePerPage, search=""){
@@ -22,7 +37,6 @@ export default class ProjectModule extends React.Component<IProjectModuleProps, 
       var that = this;
       page = (page-1)*sizePerPage;
       pnp.sp.web.getFolderByServerRelativeUrl("ProjectDocument").files.filter("substringof('" + search + "',Name)").get().then((items:any[])=>{
-                  debugger;
                   that.setState({
                          documents:that.state.documents,
                          totalSize:items.length,
@@ -61,6 +75,7 @@ export default class ProjectModule extends React.Component<IProjectModuleProps, 
   public render(): React.ReactElement<IProjectModuleProps> {
     return (
       <section> 
+          <a onDrop={(e)=>this.drop(e)} onDragOver={(e)=>this.allowDrop(e)}>Allow Drop</a>
           <DocumentGridView onSearch={this.onSearch.bind(this)} data={this.state.documents} sizePerPageListChange={this.sizePerPageListChange.bind(this)} page={this.state.page} sizePerPage={this.state.sizePerPage} onPageChange={this.onPageChange.bind(this)} total={this.state.totalSize}/>
           <UploadDocument loadDocument={this.loadDocument.bind(this)} />
       </section>
