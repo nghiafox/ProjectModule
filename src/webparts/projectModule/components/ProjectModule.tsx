@@ -5,6 +5,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import DocumentGridView from './DocumentGridView';
 import UploadDocument from './UploadDocument';
 import pnp from "sp-pnp-js";
+import TreeView from "./TreeView";
 export default class ProjectModule extends React.Component<IProjectModuleProps, any> {
   constructor(props: any){  
         super(props);
@@ -75,6 +76,7 @@ export default class ProjectModule extends React.Component<IProjectModuleProps, 
   public render(): React.ReactElement<IProjectModuleProps> {
     return (
       <section> 
+          <TreeView />
           <a onDrop={(e)=>this.drop(e)} onDragOver={(e)=>this.allowDrop(e)}>Allow Drop</a>
           <DocumentGridView onSearch={this.onSearch.bind(this)} data={this.state.documents} sizePerPageListChange={this.sizePerPageListChange.bind(this)} page={this.state.page} sizePerPage={this.state.sizePerPage} onPageChange={this.onPageChange.bind(this)} total={this.state.totalSize}/>
           <UploadDocument loadDocument={this.loadDocument.bind(this)} />
