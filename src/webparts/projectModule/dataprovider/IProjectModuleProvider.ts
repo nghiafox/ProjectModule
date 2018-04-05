@@ -1,5 +1,4 @@
 import { IWebPartContext } from '@microsoft/sp-webpart-base';
-import ITreeView from '../model/ITreeView';
 interface IProjectModuleProvider {
     webPartContext: IWebPartContext;
     getFoldersDocumentSetByListName(listName:string);
