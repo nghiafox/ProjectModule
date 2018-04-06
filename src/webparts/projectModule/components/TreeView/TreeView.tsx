@@ -3,7 +3,6 @@ import * as ReactDOM from 'react-dom';
 import { Treebeard } from 'react-treebeard';
 import ProjectModuleProvider from '../../dataprovider/ProjectModuleProvider';
 import ITreeViewProps from "./ITreeViewProps";
-import { TreeList } from 'react-treeview-mui'
 export default class TreeView extends React.Component<ITreeViewProps, any > {
   
   constructor(){
