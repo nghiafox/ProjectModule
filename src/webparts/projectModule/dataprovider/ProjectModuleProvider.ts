@@ -5,7 +5,10 @@ import {
 } from '@microsoft/sp-http';
 import { IWebPartContext } from '@microsoft/sp-webpart-base';
 import IProjectModuleProvider from '../dataprovider/IProjectModuleProvider';
+<<<<<<< HEAD
 import ITreeView from '../model/ITreeView';
+=======
+>>>>>>> c0da373cb66caf33cbc3c06064942ec8ddda8a13
 import pnp from 'sp-pnp-js';
 import * as $ from 'jquery';
 export default class ProjectModuleProvider implements IProjectModuleProvider {
