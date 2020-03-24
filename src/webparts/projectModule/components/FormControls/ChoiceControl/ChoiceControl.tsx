@@ -13,7 +13,7 @@ export default class ChoiceControl extends React.Component<ChoiceControlProps, a
                 text: obj
             }
         })
-        this.defaultIndex=0;
+        this.defaultIndex=1;
    
     }
 
